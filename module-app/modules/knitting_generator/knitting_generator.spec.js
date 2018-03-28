@@ -1,5 +1,6 @@
-var knittingGeneratorJSModel = {
+var knittingGeneratorJSModel = [{
 	"name":"test",
+	"id":1,
 	"top_arrow":
 	[
 		{
@@ -63,7 +64,7 @@ var knittingGeneratorJSModel = {
 			"name":"Шарф"
 		}
 	]
-}
+}]
 
 var knittingGenerator = new KnittingGenerator();
 knittingGenerator.model = knittingGeneratorJSModel;
@@ -75,16 +76,17 @@ describe("Генератор случайных чисел", function() {
   размер изделия в метрах: длина (2) и ширина (0,3), размер спиц  (3). 
   На выходе получим время, которое будет потрачено на вязание: (1*2*0.3*3)/2 = 0,9 недель `,
   function() {
-
-	var param_1 = knittingGenerator.model.top_arrow[0].properties[0].level;
-	var param_2 = knittingGenerator.model.top_arrow[1].properties[0].lenght;
-	var param_3 = knittingGenerator.model.top_arrow[1].properties[1].width;
-	var param_4 = knittingGenerator.model.bottom_arrow[1].properties[0].size;
-	var param_5 = knittingGenerator.model.bottom_arrow[0].properties[0].count;
+    //var index = knittingGenerator.model.item.id;
+	var index = knittingGenerator.model.findIndex((item) => {return item.id == 1});
+	var param_1 = knittingGenerator.model[index].top_arrow[0].properties[0].level;
+	var param_2 = knittingGenerator.model[index].top_arrow[1].properties[0].lenght;
+	var param_3 = knittingGenerator.model[index].top_arrow[1].properties[1].width;
+	var param_4 = knittingGenerator.model[index].bottom_arrow[1].properties[0].size;
+	var param_5 = knittingGenerator.model[index].bottom_arrow[0].properties[0].count;
 	
   	var time_value = knittingGenerator.workTime(param_1,param_2,param_3,param_4,param_5)
-	console.log(time_value);
-    assert.equal((time_value = 0.9), true);
+	console.log(time_value.toFixed(1));
+    assert.equal((time_value.toFixed(1) == 0.9), true);
   });
 
 
