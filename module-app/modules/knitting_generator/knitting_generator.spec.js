@@ -83,7 +83,7 @@ describe("Генератор случайных чисел", function() {
 	var param_5 = knittingGenerator.model.bottom_arrow[0].properties[0].count;
 	
   	var time_value = knittingGenerator.workTime(param_1,param_2,param_3,param_4,param_5)
-	console.log(res);
+	console.log(time_value);
     assert.equal((time_value = 0.9), true);
   });
 
