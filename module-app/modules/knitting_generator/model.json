@@ -1,5 +1,6 @@
-{
-	"name":"test",
+[{
+	"id":1,
+	"name":"making",
 	"top_arrow":
 	[
 		{
@@ -63,4 +64,69 @@
 			"name":"Шарф"
 		}
 	]
-}
+},
+{
+	"id":2,
+	"depends_on":1,
+	"name":"packing",
+	"top_arrow":
+	[
+		{
+			"name":"Заказ",
+			"properties":
+			[
+				{
+					"count":8
+				}
+			]
+		}
+	],
+	"bottom_arrow":
+	[
+		{
+			"name":"Работник склада",
+			"properties":
+			[
+				{
+					"count":2
+				}
+			]
+		},
+		{
+			"name":"Коробка",
+			"properties":
+			[
+				{
+					"capacity":4
+				},
+				{
+					"count":3
+				}
+			]
+		},
+	],
+	"left_arrow":
+	[
+		{
+			"name":"Шарф",
+			"properties":
+			[
+				{
+					"price":3000
+				}
+			]
+		}
+	],
+	"right_arrow":
+	[
+		{
+			"name":"Партия"
+		}
+		"properties":
+		[
+			{
+				"boxes_count":3
+			}
+		]
+	]
+}]
