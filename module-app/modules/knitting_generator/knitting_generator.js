@@ -7,6 +7,14 @@ var KnittingGenerator = function(){
 		
 		return result;
 	}
+	this.cost_value = (scarf_cost, box_count, box_capacity, scarf_in_order) => {
+		var result = null;
+		if(box_count>=(scarf_in_order/box_capacity))			
+			result = (scarf_cost*scarf_in_order*(scarf_in_order/box_capacity));
+		else
+			result = 0;
+		return result;
+	}
 
 	this.load_model = () => {
 		$.get(this.model_path, (res)=>{
