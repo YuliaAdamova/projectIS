@@ -82,8 +82,8 @@ describe("Генератор случайных чисел", function() {
 	var param_4 = knittingGenerator.model.bottom_arrow[1].properties[0].size;
 	var param_5 = knittingGenerator.model.bottom_arrow[0].properties[0].count;
 	
-  	var time_value = knittingGenerator.workTime(param1,param_2,param_3,param_4,param_5)
-
+  	var time_value = knittingGenerator.workTime(param_1,param_2,param_3,param_4,param_5)
+	console.log(res);
     assert.equal((time_value = 0.9), true);
   });
 
