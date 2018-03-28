@@ -1,4 +1,5 @@
 var knittingGeneratorJSModel = [{
+
 	"id":1,
 	"name":"making",
 	"top_arrow":
@@ -140,16 +141,17 @@ describe("Генератор случайных чисел", function() {
   размер изделия в метрах: длина (2) и ширина (0,3), размер спиц  (3). 
   На выходе получим время, которое будет потрачено на вязание: (1*2*0.3*3)/2 = 0,9 недель `,
   function() {
+    //var index = knittingGenerator.model.item.id;
+	var index = knittingGenerator.model.findIndex((item) => {return item.id == 1});
+	var param_1 = knittingGenerator.model[index].top_arrow[0].properties[0].level;
+	var param_2 = knittingGenerator.model[index].top_arrow[1].properties[0].lenght;
+	var param_3 = knittingGenerator.model[index].top_arrow[1].properties[1].width;
+	var param_4 = knittingGenerator.model[index].bottom_arrow[1].properties[0].size;
+	var param_5 = knittingGenerator.model[index].bottom_arrow[0].properties[0].count;
 	
-	var param_1 = knittingGenerator.model.top_arrow[0].properties[0].level;
-	var param_2 = knittingGenerator.model.top_arrow[1].properties[0].lenght;
-	var param_3 = knittingGenerator.model.top_arrow[1].properties[1].width;
-	var param_4 = knittingGenerator.model.bottom_arrow[1].properties[0].size;
-	var param_5 = knittingGenerator.model.bottom_arrow[0].properties[0].count;
-	
-  	var time_value = knittingGenerator.workTime(param1,param_2,param_3,param_4,param_5)
-
-    assert.equal((time_value = 0.9), true);
+  	var time_value = knittingGenerator.workTime(param_1,param_2,param_3,param_4,param_5)
+	console.log(time_value.toFixed(1));
+    assert.equal((time_value.toFixed(1) == 0.9), true);
   });
   it(`Если на вход задают количество шарфов в заказе (8), количество свободных коробок (3) и их вместительность (4), а также входную стоимость одного шарфа (3000), то
   на выходе получим стоимость одной партии: (3000 * 8 *(8/4)) = 48000 рублей `,

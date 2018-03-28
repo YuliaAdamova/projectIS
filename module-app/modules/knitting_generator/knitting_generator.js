@@ -2,10 +2,10 @@ var KnittingGenerator = function(){
 	this.model_path = './modules/knitting_generator/model.json'
 	this.model = {};
 	this.workTime = (level, lenght, width, needle, count) => {
-		var result = null;
-		result = (level*lenght*width*needle)/count;
+		var res = null;
+		res = (level*lenght*width*needle)/count;
 		
-		return result;
+		return res;
 	}
 	this.cost_value = (scarf_cost, box_count, box_capacity, scarf_in_order) => {
 		var result = null;
